@@ -24,7 +24,11 @@
         <td><p>link</p></td>
         <td>{{word_count}}</td>
         <td><button class="btn btn-danger">view</button></td>
-        <td>links</td>
+        <td>
+        {% for url in urls %}
+            <p>{{url}}</p>
+        {% endfor %}
+        </td>
     </tbody>
 </table>
 {% endif %}

@@ -22,8 +22,34 @@ def home(request):
             print(content)
             word_count += len(content)
 
+
+
+
+        # *********************** urls **********************
+        urls = soup.find_all('a')
+        urls_links = []
+
+        for url in urls:
+            href = url['href']
+
+            if href.startswith('#'):
+                pass
+            elif href.startswith('/'):
+                updated_href = link+href
+                urls_links.append(updated_href)
+            elif href.startswith('http'):
+                urls_links.append(href)
+            else:
+                pass
+
+
+
+
+
+
         context= {
-            'word_count' : word_count
+            'word_count' : word_count,
+            'urls': urls_links
         }
 
         return render(request, 'index.html', context)
@@ -32,5 +58,4 @@ def home(request):
 
 
 
-        # *********************** urls **********************
     return render(request, 'index.html')
