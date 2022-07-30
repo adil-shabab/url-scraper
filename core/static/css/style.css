@@ -4,6 +4,14 @@
     align-items: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 00, 0.5);
 }
+.navbar .logo{
+    color: orange;
+    font-weight: bold;
+    font-size: 25px;
+}
+.navbar .logo:hover{
+    text-decoration: none;
+}
 .navbar .lists{
     margin-top: 10px;
     display: flex; 
