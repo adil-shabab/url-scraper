@@ -15,5 +15,15 @@ def home(request):
         # ********************* word count *******************
         word_count = 0
         source_code = requests.get(link).text
-        print(source_code)
+        soup_code = BeautifulSoup(source_code, 'html.parser')
+        print(soup_code)
+        for each_text in soup_code.findAll('div'):
+            content = each_text.text
+            print(content)
+            word_count += len(content)
+
+
+
+
+        # *********************** urls **********************
     return render(request, 'index.html')
