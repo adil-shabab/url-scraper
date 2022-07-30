@@ -4,18 +4,13 @@ from django.db import models
 class Website(models.Model):
     domain = models.CharField(max_length=240)
     word_count = models.IntegerField()
-    urls = models.ManyToManyField('Url')
-    images = models.ManyToManyField('Images')
+    urls = models.TextField(null=True)
+    images = models.TextField(null=True)
     
     def __str__(self):
         return self.domain
 
 
-class Url(models.Model):
-    url = models.CharField(max_length=200)
+class Favourite(models.Model):
+    website = models.ForeignKey(Website, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.url
-
-class Images(models.Model):
-    image = models.ImageField(upload_to='media')

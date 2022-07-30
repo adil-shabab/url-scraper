@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from django.shortcuts import redirect, render
-from idna import valid_contexto
 import requests
+from .models import Website
 
 # Create your views here.
 def home(request):
@@ -72,6 +72,8 @@ def home(request):
         #     video_link = link+video['src']
         #     videos_links.append(video_link)
          
+        web = Website(domain=link, word_count=word_count, urls=urls_links, images=image_links)
+        web.save()
 
 
         context= {
@@ -79,7 +81,6 @@ def home(request):
             'word_count' : word_count,
             'urls': urls_links,
             'images': image_links,
-            # 'videos': videos_links
         }
 
         return render(request, 'index.html', context)
