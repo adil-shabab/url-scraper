@@ -22,6 +22,13 @@ def home(request):
             print(content)
             word_count += len(content)
 
+        context= {
+            'word_count' : word_count
+        }
+
+        return render(request, 'index.html', context)
+
+
 
 
 

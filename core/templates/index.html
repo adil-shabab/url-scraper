@@ -10,6 +10,7 @@
 </form>
 
 <div class="container">
+{% if word_count %}
 <table>
     <thead>
         <th>id</th>
@@ -21,10 +22,11 @@
     <tbody>
         <td>1</td>
         <td><p>link</p></td>
-        <td>56641</td>
+        <td>{{word_count}}</td>
         <td><button class="btn btn-danger">view</button></td>
         <td>links</td>
     </tbody>
 </table>
+{% endif %}
 </div>
 {% endblock content %}
