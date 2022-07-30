@@ -3,7 +3,8 @@
 {% block content %}
 {% include "navbar.html" %}
 
-<form action="/" method="GET" class="mt-5 p-5 d-flex justify-content-center align-items-center">
+<form action="/" method="POST" class="mt-5 p-5 d-flex justify-content-center align-items-center">
+    {% csrf_token %}
     <input name="input" class="input" type="text">
     <button type="submit" class="button ml-3">Submit</button>
 </form>
