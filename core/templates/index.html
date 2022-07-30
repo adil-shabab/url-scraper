@@ -1,53 +1,77 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %} {% include "navbar.html" %}
 
-{% block content %}
-{% include "navbar.html" %}
-
-<form action="/" method="POST" class="mt-5 p-5 d-flex justify-content-center align-items-center">
-    {% csrf_token %}
-    <input name="input" class="input" type="text">
-    <button type="submit" class="button ml-3">Submit</button>
+<form
+  action="/"
+  method="POST"
+  class="mt-5 p-5 d-flex justify-content-center align-items-center"
+>
+  {% csrf_token %}
+  <input name="input" class="input" type="text" />
+  <button type="submit" class="button ml-3">Submit</button>
 </form>
 
-<div class="container w-100">
-{% if word_count %}
-<table class='w-100'>
+<div class="container">
+  {% if word_count %}
+  <table>
     <thead>
-        <th class="text-center">id</th>
-        <th class="text-center">domain</th>
-        <th class="text-center">word</th>
-        <th class="text-center">images</th>
-        <th class="text-center">urls</th>
-        <th class="text-center">favourite</th>
-        <!-- <th class="text-center">delete</th> -->
+      <tr>
+        <th>Id</th>
+        <th>Domain</th>
+        <th>Word Count</th>
+        <th>Images</th>
+        <th>Urls</th>
+        <th>Favourite</th>
+      </tr>
     </thead>
     <tbody>
-        <td class="text-center">1</td>
-        <td class="text-center"><p>{{link}}</p></td>
-        <td class="text-center">{{word_count}}</td>
-        <td class="text-center">
-        <!-- {% if images %}
+      <tr>
+        <td>1</td>
+        <td>{{link}}</td>
+        <td>{{word_count}}</td>
+        <td><button class="btn btn-success">View Images</button></td>
+        <td><button class="btn btn-success">View urls</button></td>
+        <td><button class="btn btn-warning">Add to fav</button></td>
+      </tr>
+    </tbody>
+  </table>
+  {% endif %}
+</div>
+{% endblock content %}
+
+<table>
+  <thead>
+    <th class="text-center">id</th>
+    <th class="text-center">domain</th>
+    <th class="text-center">word</th>
+    <th class="text-center">images</th>
+    <th class="text-center">urls</th>
+    <th class="text-center">favourite</th>
+    <!-- <th class="text-center">delete</th> -->
+  </thead>
+  <tbody>
+    <td class="text-center">1</td>
+    <td class="text-center"><p>{{link}}</p></td>
+    <td class="text-center">{{word_count}}</td>
+    <td class="text-center">
+      <!-- {% if images %}
         {% for image in images %}
             <p>{{image}}</p>
         {% endfor %}
         {% else %}
             <p>no images</p>
         {% endif %} -->
-        <button class="btn btn-success">View</button>
-        </td>
-        <td class="text-center">
-        {% if urls %}
-        {% for url in urls %}
-            <p>{{url}}</p>
-        {% endfor %}
-        {% else %}
-            <p>no urls</p>
-        {% endif %}
-        </td>
-        <td class="text-center"><a href=""><i class="fa-solid fa-heart"></i></a></td>
-        <!-- <td class="text-center"><a href=""><i class="fa-solid fa-trash"></i></a></i></td> -->
-    </tbody>
+      <button class="btn btn-success">View</button>
+    </td>
+    <td class="text-center">
+      {% if urls %} {% for url in urls %}
+      <p>{{url}}</p>
+      {% endfor %} {% else %}
+      <p>no urls</p>
+      {% endif %}
+    </td>
+    <td class="text-center">
+      <a href=""><i class="fa-solid fa-heart"></i></a>
+    </td>
+    <!-- <td class="text-center"><a href=""><i class="fa-solid fa-trash"></i></a></i></td> -->
+  </tbody>
 </table>
-{% endif %}
-</div>
-{% endblock content %}
