@@ -3,10 +3,10 @@
 {% block content %}
 {% include "navbar.html" %}
 
-<div class="mt-5 p-5 d-flex justify-content-center align-items-center">
-    <input class="input" type="text">
-    <button class="button ml-3">Submit</button>
-</div>
+<form action="/" method="GET" class="mt-5 p-5 d-flex justify-content-center align-items-center">
+    <input name="input" class="input" type="text">
+    <button type="submit" class="button ml-3">Submit</button>
+</form>
 
 <div class="container">
 <table>
