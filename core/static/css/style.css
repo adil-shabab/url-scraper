@@ -73,3 +73,6 @@ thead,tbody,td,th{
     border: 1px solid black;
     padding: 7px;
 }
+td a i{
+    font-size: 24px;
+}

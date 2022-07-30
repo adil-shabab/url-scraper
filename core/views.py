@@ -66,11 +66,11 @@ def home(request):
         #     video_link = link+video['src']
         #     videos_links.append(video_link)
          
-        videos = soup.find_all('video')
-        videos_links = []
-        for video in videos:
-            video_link = link+video['src']
-            videos_links.append(video_link)
+        # videos = soup.find_all('video')
+        # videos_links = []
+        # for video in videos:
+        #     video_link = link+video['src']
+        #     videos_links.append(video_link)
          
 
 
@@ -79,7 +79,7 @@ def home(request):
             'word_count' : word_count,
             'urls': urls_links,
             'images': image_links,
-            'videos': videos_links
+            # 'videos': videos_links
         }
 
         return render(request, 'index.html', context)

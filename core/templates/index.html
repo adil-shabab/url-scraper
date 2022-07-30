@@ -9,41 +9,33 @@
     <button type="submit" class="button ml-3">Submit</button>
 </form>
 
-<div class="container">
+<div class="container w-100">
 {% if word_count %}
-<table>
+<table class='w-100'>
     <thead>
-        <th>id</th>
-        <th>domain</th>
-        <th>word</th>
-        <th>images</th>
-        <th>videos</th>
-        <th>urls (links in webpage)</th>
+        <th class="text-center">id</th>
+        <th class="text-center">domain</th>
+        <th class="text-center">word</th>
+        <th class="text-center">images</th>
+        <th class="text-center">urls</th>
+        <th class="text-center">favourite</th>
+        <!-- <th class="text-center">delete</th> -->
     </thead>
     <tbody>
-        <td>1</td>
-        <td><p>{{link}}</p></td>
-        <td>{{word_count}}</td>
-        <!-- <td><button class="btn btn-danger">view</button></td> -->
-        <td>
-        {% if images %}
+        <td class="text-center">1</td>
+        <td class="text-center"><p>{{link}}</p></td>
+        <td class="text-center">{{word_count}}</td>
+        <td class="text-center">
+        <!-- {% if images %}
         {% for image in images %}
             <p>{{image}}</p>
         {% endfor %}
         {% else %}
             <p>no images</p>
-        {% endif %}
+        {% endif %} -->
+        <button class="btn btn-success">View</button>
         </td>
-        <td>
-        {% if videos %}
-        {% for video in videos %}
-            <p>{{video}}</p>
-        {% endfor %}
-        {% else %}
-            <p>no videos</p>
-        {% endif %}
-        </td>
-        <td>
+        <td class="text-center">
         {% if urls %}
         {% for url in urls %}
             <p>{{url}}</p>
@@ -52,6 +44,8 @@
             <p>no urls</p>
         {% endif %}
         </td>
+        <td class="text-center"><a href=""><i class="fa-solid fa-heart"></i></a></td>
+        <!-- <td class="text-center"><a href=""><i class="fa-solid fa-trash"></i></a></i></td> -->
     </tbody>
 </table>
 {% endif %}
