@@ -23,11 +23,24 @@
         <td>1</td>
         <td><p>link</p></td>
         <td>{{word_count}}</td>
-        <td><button class="btn btn-danger">view</button></td>
+        <!-- <td><button class="btn btn-danger">view</button></td> -->
         <td>
+        {% if images %}
+        {% for image in images %}
+            <p>{{image}}</p>
+        {% endfor %}
+        {% else %}
+            <p>no images</p>
+        {% endif %}
+        </td>
+        <td>
+        {% if urls %}
         {% for url in urls %}
             <p>{{url}}</p>
         {% endfor %}
+        {% else %}
+            <p>no urls</p>
+        {% endif %}
         </td>
     </tbody>
 </table>

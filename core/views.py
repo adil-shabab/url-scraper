@@ -46,10 +46,23 @@ def home(request):
 
 
 
+        # ******************* media **************************
+        images = soup.find_all('img')
+        image_links = []
+
+        for image in images:
+            image_link = link+image['src']
+            image_links.append(image_link)
+
+
+
+
+
 
         context= {
             'word_count' : word_count,
-            'urls': urls_links
+            'urls': urls_links,
+            'images': image_links
         }
 
         return render(request, 'index.html', context)
