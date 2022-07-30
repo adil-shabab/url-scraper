@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from django.shortcuts import redirect, render
+from idna import valid_contexto
 import requests
 
 # Create your views here.
@@ -47,6 +48,8 @@ def home(request):
 
 
         # ******************* media **************************
+        
+        # ********************* images *************************
         images = soup.find_all('img')
         image_links = []
 
@@ -56,13 +59,27 @@ def home(request):
 
 
 
-
+        # *********************** vedio ********************
+        # videos = soup.find_all('source')
+        # videos_links = []
+        # for video in videos:
+        #     video_link = link+video['src']
+        #     videos_links.append(video_link)
+         
+        videos = soup.find_all('video')
+        videos_links = []
+        for video in videos:
+            video_link = link+video['src']
+            videos_links.append(video_link)
+         
 
 
         context= {
+            'link': link,
             'word_count' : word_count,
             'urls': urls_links,
-            'images': image_links
+            'images': image_links,
+            'videos': videos_links
         }
 
         return render(request, 'index.html', context)

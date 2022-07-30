@@ -17,11 +17,12 @@
         <th>domain</th>
         <th>word</th>
         <th>images</th>
+        <th>videos</th>
         <th>urls (links in webpage)</th>
     </thead>
     <tbody>
         <td>1</td>
-        <td><p>link</p></td>
+        <td><p>{{link}}</p></td>
         <td>{{word_count}}</td>
         <!-- <td><button class="btn btn-danger">view</button></td> -->
         <td>
@@ -31,6 +32,15 @@
         {% endfor %}
         {% else %}
             <p>no images</p>
+        {% endif %}
+        </td>
+        <td>
+        {% if videos %}
+        {% for video in videos %}
+            <p>{{video}}</p>
+        {% endfor %}
+        {% else %}
+            <p>no videos</p>
         {% endif %}
         </td>
         <td>
