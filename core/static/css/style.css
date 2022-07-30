@@ -52,3 +52,15 @@
     background: red;
     color: white;
 }
+.button{
+    background: orange;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 1px solid orange;
+}
+.input{
+    height: 40px;
+    width: 50%;
+    border-radius: 10px;
+}
