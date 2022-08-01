@@ -92,3 +92,9 @@ td a i{
 .urls{
     color: blue;
 }
+.history-head{
+    color: orange;
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
