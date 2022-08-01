@@ -144,15 +144,30 @@ def history(request):
 
 
 
-def addtofav(request,pk):
-    website = Website.objects.get(id=pk)
+def fav(request):
     all_websites = Favourite.objects.all()
-
-    fav = Favourite(website=website)
-    fav.save()
-
-
     context = {
         'websites' : all_websites,
     }
     return render(request, 'fav.html', context)
+
+
+def addtofav(request,pk):
+    website = Website.objects.get(id=pk)
+
+    fav = Favourite(website=website)
+    if Favourite.objects.filter(website=website):
+        pass
+    else:
+        fav.save()
+    
+    return redirect('history')
+
+
+
+
+def removefav(request, pk):
+    fav = Favourite.objects.get(id = pk)
+    fav.delete()
+
+    return redirect('fav')

@@ -30,8 +30,7 @@
         <td>{{word_count}}</td>
         <td><a href="{% url 'single-images' website.id %}"><button class="btn btn-success">View Images</button></a></td>
         <td><a href="{% url 'single-url' website.id %}"><button class="btn btn-success">View urls</button></a></td>
-        <td></td>
-        <td><button class="btn btn-warning">Add to fav</button></td>
+        <td><a href="{% url 'add-to-fav' web.id %}"><button class="btn btn-warning">Add to fav</button></a></td>
       </tr>
     </tbody>
   </table>

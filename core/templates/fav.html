@@ -24,7 +24,7 @@
             <td>{{web.website.word_count}}</td>
             <td><a href="{% url 'single-images' web.id %}"><button class="btn btn-success">View Images</button></a></td>
             <td><a href="{% url 'single-url' web.id %}"><button class="btn btn-success">View urls</button></a></td>
-            <td><a href="{% url 'add-to-fav' web.id %}"><button class="btn btn-warning">Remove from Favourite</button></a></td>
+            <td><a href="{% url 'remove-fav' web.id %}"><button class="btn btn-warning">Remove from Favourite</button></a></td>
           </tr>  
         {% endfor %}
       </tbody>
