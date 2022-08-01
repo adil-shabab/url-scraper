@@ -77,6 +77,7 @@ def home(request):
 
 
         context= {
+            'website': web,
             'link': link,
             'word_count' : word_count,
             'urls': urls_links,
@@ -105,6 +106,7 @@ def singleImages(request, pk):
         all_images.append(img)
     # print(images)
     context = {
+        'website': website,
         'images': all_images
     }
 
