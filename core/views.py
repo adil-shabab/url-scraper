@@ -90,3 +90,10 @@ def home(request):
 
 
     return render(request, 'index.html')
+
+
+
+
+def singleImages(request, pk):
+    website = Website.objects.get(id=pk)
+    
