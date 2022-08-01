@@ -129,3 +129,15 @@ def singleUrl(request, pk):
     }
 
     return render(request, 'url.html', context)
+
+
+
+def history(request):
+
+    all_websites = Website.objects.all()
+    context = {
+        'websites' : all_websites,
+    }
+
+
+    return render(request, 'history.html', context)
