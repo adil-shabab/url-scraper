@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from django.shortcuts import redirect, render
 import requests
-from .models import Website
+from .models import Website, Favourite
 
 # Create your views here.
 def home(request):
@@ -141,3 +141,13 @@ def history(request):
 
 
     return render(request, 'history.html', context)
+
+
+
+def addtofav(request,pk):
+    website = Website.objects.get(id=pk)
+
+    fav = Favourite(website=website)
+    fav.save()
+
+    return render(request, 'fav.html')

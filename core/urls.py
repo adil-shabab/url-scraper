@@ -6,4 +6,6 @@ urlpatterns = [
     path('images/<str:pk>', views.singleImages, name='single-images'),
     path('url/<str:pk>', views.singleUrl, name='single-url'),
     path('history', views.history, name='history'),
+    path('addtofav/<str:pk>', views.addtofav, name='add-to-fav'),
+    # path('favourites', views.history, name='favourites'),
 ]

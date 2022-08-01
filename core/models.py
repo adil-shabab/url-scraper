@@ -14,3 +14,6 @@ class Website(models.Model):
 class Favourite(models.Model):
     website = models.ForeignKey(Website, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.website.domain
+
