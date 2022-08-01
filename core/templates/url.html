@@ -11,8 +11,12 @@
   </nav>
   <p class="para mt-3">url page in <span class="span">{{website}}</span></p>
   <div class="container text-center overflow-hidden">
+      {% if urls %}
       {% for url in urls %}
-        <p class="urls">{{url}}</p>
-      {% endfor %}
+      <p class="urls">{{url}}</p>
+    {% endfor %}
+    {% else %}
+    <p class="mt-5">No urls in this {{website}}</p>
+      {% endif %}
   </div>
 {% endblock content %}

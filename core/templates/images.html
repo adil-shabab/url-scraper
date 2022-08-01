@@ -13,10 +13,14 @@
     images in <span class="span">"{{website}}"</span>
 </p>
   <div class="row container">
+    {% if images %}
     {% for image in images %}
     <!-- <div class="col-xlg-3 col-lg-3 col-md-2 col-sm-6 col-xsm-12"> -->
         <img class="mb-2 single_image col-xlg-3 col-lg-3 col-md-2 col-sm-6 col-xsm-12 border border-dark" src="{{image}}" alt="image" />
     <!-- </div> -->
     {% endfor %}
+    {% else %}
+    <p class="mt-5">No images in this {{website}}</p>
+    {% endif %}
   </div>
 {% endblock content %}
