@@ -105,6 +105,8 @@ def home(request):
 
 
 def singleImages(request, pk):
+    fav_count = Favourite.objects.all().count()
+    history_count = Website.objects.all().count()
     website = Website.objects.get(id=pk)
     all_img = website.images.replace('[','')
     all_imgs = all_img.replace(']','')
@@ -119,12 +121,16 @@ def singleImages(request, pk):
     context = {
         'website': website,
         'images': all_images,
+        'fav_count' : fav_count,
+        'history_count' : history_count
     }
 
     return render(request, 'images.html', context)
     
 
 def singleUrl(request, pk):
+    fav_count = Favourite.objects.all().count()
+    history_count = Website.objects.all().count()
     website = Website.objects.get(id=pk)
     all_url = website.urls.replace('[','')
     all_urls = all_url.replace(']','')
@@ -136,7 +142,9 @@ def singleUrl(request, pk):
 
     context = {
         'website': website,
-        'urls': all_urls
+        'urls': all_urls,
+        'fav_count' : fav_count,
+        'history_count' : history_count
     }
 
     return render(request, 'url.html', context)
