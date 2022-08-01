@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% include "navbar.html" %}
+<nav class="w-100 navbar">
+    <a class="logo" href="">URL SCRAPER</a>
+    <ul class="lists">
+        <li><a href=""><i class="fa-solid fa-house"></i></a></li>
+        <li class="fav"><div class="circle"></div><a href=""><i class="fa-solid fa-heart"></i></a></li>
+        <li class="history"><div class="circle">{{history_count}}</div><a href=""><i class="fa-solid fa-clock-rotate-left"></i></a></li>
+    </ul>
+</nav>
 <h4 class="history-head mt-3 mb-3">Favourites</h4>
 <div class="container">
     {% if websites %}

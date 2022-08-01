@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% include "navbar.html" %}
+<nav class="w-100 navbar">
+    <a class="logo" href="">URL SCRAPER</a>
+    <ul class="lists">
+        <li><a href=""><i class="fa-solid fa-house"></i></a></li>
+        <li class="fav"><div class="circle"></div><a href=""><i class="fa-solid fa-heart"></i></a></li>
+        <li class="history"><div class="circle">{{history_count}}</div><a href=""><i class="fa-solid fa-clock-rotate-left"></i></a></li>
+    </ul>
+</nav>
   <p class="para mt-3">url page in <span class="span">{{website}}</span></p>
   <div class="container text-center overflow-hidden">
       {% for url in urls %}

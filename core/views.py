@@ -5,6 +5,8 @@ from .models import Website, Favourite
 
 # Create your views here.
 def home(request):
+    fav_count = Favourite.objects.all().count()
+    history_count = Website.objects.all().count()
     if request.method == "POST":
         link = request.POST.get('input')
         r = requests.get(link)
@@ -74,23 +76,30 @@ def home(request):
          
         web = Website(domain=link, word_count=word_count, urls=urls_links, images=image_links)
         web.save()
+        fav_count = Favourite.objects.all().count()
+        history_count = Website.objects.all().count()
 
-
+        
         context= {
             'website': web,
             'link': link,
             'word_count' : word_count,
             'urls': urls_links,
             'images': image_links,
+            'fav_count' : fav_count,
+            'history_count' : history_count
         }
 
         return render(request, 'index.html', context)
 
+    context={
+        'fav_count' : fav_count,
+        'history_count' : history_count
+    }
 
 
 
-
-    return render(request, 'index.html')
+    return render(request, 'index.html', context)
 
 
 
@@ -104,10 +113,12 @@ def singleImages(request, pk):
     for x in images:
         img = x.replace("'","").replace(",","")
         all_images.append(img)
+
+
     # print(images)
     context = {
         'website': website,
-        'images': all_images
+        'images': all_images,
     }
 
     return render(request, 'images.html', context)
@@ -135,8 +146,12 @@ def singleUrl(request, pk):
 def history(request):
 
     all_websites = Website.objects.all()
+    fav_count = Favourite.objects.all().count()
+    history_count = Website.objects.all().count()
     context = {
         'websites' : all_websites,
+        'fav_count' : fav_count,
+        'history_count' : history_count
     }
 
 
@@ -146,8 +161,12 @@ def history(request):
 
 def fav(request):
     all_websites = Favourite.objects.all()
+    fav_count = Favourite.objects.all().count()
+    history_count = Website.objects.all().count()
     context = {
         'websites' : all_websites,
+        'fav_count' : fav_count,
+        'history_count' : history_count
     }
     return render(request, 'fav.html', context)
 
