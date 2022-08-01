@@ -112,3 +112,20 @@ def singleImages(request, pk):
 
     return render(request, 'images.html', context)
     
+
+def singleUrl(request, pk):
+    website = Website.objects.get(id=pk)
+    all_url = website.urls.replace('[','')
+    all_urls = all_url.replace(']','')
+    urls = all_urls.split()
+    all_urls = []
+    for x in urls:
+        img = x.replace("'","").replace(",","")
+        all_urls.append(img)
+
+    context = {
+        'website': website,
+        'urls': all_urls
+    }
+
+    return render(request, 'url.html', context)
