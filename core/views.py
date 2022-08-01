@@ -96,4 +96,17 @@ def home(request):
 
 def singleImages(request, pk):
     website = Website.objects.get(id=pk)
+    all_img = website.images.replace('[','')
+    all_imgs = all_img.replace(']','')
+    images = all_imgs.split()
+    all_images = []
+    for x in images:
+        img = x.replace("'","").replace(",","")
+        all_images.append(img)
+    # print(images)
+    context = {
+        'images': all_images
+    }
+
+    return render(request, 'images.html', context)
     
