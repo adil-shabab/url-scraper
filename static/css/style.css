@@ -76,3 +76,14 @@ thead,tbody,td,th{
 td a i{
     font-size: 24px;
 }
+.single_image{
+    width: 100px !important;
+    height: 100px !important;
+}
+.para{
+    color: rgb(0, 0, 0) !important;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    font-size: 25px !important;
+    font-weight: bold !important;
+}

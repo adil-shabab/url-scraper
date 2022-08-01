@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <dir class="row">
+<p class="para mt-3">
+    images in facebook.com
+</p>
+  <div class="row container">
     {% for image in images %}
-    <div class="col-lg-3 col-md-2 col-sm-6 col-12">
-        <img class="single_image" src="{{image}}" alt=" class="w-100" />
-    </div>
+    <!-- <div class="col-xlg-3 col-lg-3 col-md-2 col-sm-6 col-xsm-12"> -->
+        <img class="mb-2 single_image col-xlg-3 col-lg-3 col-md-2 col-sm-6 col-xsm-12 border border-dark" src="{{image}}" alt="image" />
+    <!-- </div> -->
     {% endfor %}
-  </dir>
+  </div>
 {% endblock content %}
