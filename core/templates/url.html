@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% include "navbar.html" %}
   <p class="para mt-3">url page in <span class="span">{{website}}</span></p>
   <div class="container text-center overflow-hidden">
       {% for url in urls %}

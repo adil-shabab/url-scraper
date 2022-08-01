@@ -1,5 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Favourite page</h1>
+{% include "navbar.html" %}
+<h4 class="history-head mt-3 mb-3">Favourites</h4>
+<div class="container">
+    {% if websites %}
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Domain</th>
+          <th>Word Count</th>
+          <th>Images</th>
+          <th>Urls</th>
+          <th>Favourite</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for web in websites  %}
+        <tr>
+            <td>1</td>
+            <td>{{web.website.domain}}</td>
+            <td>{{web.website.word_count}}</td>
+            <td><a href="{% url 'single-images' web.id %}"><button class="btn btn-success">View Images</button></a></td>
+            <td><a href="{% url 'single-url' web.id %}"><button class="btn btn-success">View urls</button></a></td>
+            <td><a href="{% url 'add-to-fav' web.id %}"><button class="btn btn-warning">Remove from Favourite</button></a></td>
+          </tr>  
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </div>
 {% endblock content %}

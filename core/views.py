@@ -146,8 +146,13 @@ def history(request):
 
 def addtofav(request,pk):
     website = Website.objects.get(id=pk)
+    all_websites = Favourite.objects.all()
 
     fav = Favourite(website=website)
     fav.save()
 
-    return render(request, 'fav.html')
+
+    context = {
+        'websites' : all_websites,
+    }
+    return render(request, 'fav.html', context)
