@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ths&(pwh+p#1^y3p=jfho+b(7$fdwvh49#*d3b73$xgj#uxb#=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['url--scraper.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['url--scraper.herokuapp.com','127.0.0.1', '.railway.app']
 
 
 # Application definition
